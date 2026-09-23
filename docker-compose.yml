@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  ecotwin-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ecotwin-smart-waste
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - NODE_ENV=production
+      - APP_URL=http://localhost:3000
+      - JWT_SECRET=ecotwin_ai_jwt_secret_phase1_super_secure_key
+      - DATA_DIR=/app/data
+      - DATABASE_NAME=ecotwin_database.json
+      # Pass through GEMINI_API_KEY from host environment if available
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+    volumes:
+      # Persistent volume mount for database storage
+      - ecotwin_data:/app/data
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000/api/health/ping"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+volumes:
+  ecotwin_data:
+    driver: local

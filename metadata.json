@@ -1,0 +1,6 @@
+{
+  "name": "EcoTwin AI - Smart Waste & Carbon Optimization",
+  "description": "Digital Twin Web Framework for Smart Waste Management, AI Fill-Level Prediction, Vehicle Route Optimization, and Carbon Footprint Reduction.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

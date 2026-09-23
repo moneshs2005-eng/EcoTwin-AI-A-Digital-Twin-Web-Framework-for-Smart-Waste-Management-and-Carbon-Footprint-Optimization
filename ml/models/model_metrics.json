@@ -1,0 +1,21 @@
+{
+  "model_name": "EcoTwin_RandomForest_WasteRegressor_v1",
+  "evaluated_at": "2026-09-23T07:16:03.120693Z",
+  "train_samples": 1200,
+  "test_samples": 300,
+  "metrics": {
+    "mae": 1.42,
+    "mse": 3.34,
+    "rmse": 1.83,
+    "r2": 0.994
+  },
+  "features": [
+    "previous_waste_level",
+    "hour",
+    "day_of_week",
+    "temperature",
+    "rainfall",
+    "collection_history_hours",
+    "waste_type"
+  ]
+}
